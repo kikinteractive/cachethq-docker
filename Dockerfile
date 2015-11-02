@@ -1,14 +1,16 @@
 FROM cachethq/docker:base-d3506c1
 
 RUN cd /var/www/html && \
-    wget https://github.com/cachethq/Cachet/archive/v1.2.0.tar.gz && \
-    tar xzvf v1.2.0.tar.gz --strip-components=1 && \
+    wget https://github.com/cachethq/Cachet/archive/v2.0.0-RC1.tar.gz && \
+    tar xzvf v2.0.0-RC1.tar.gz --strip-components=1 && \
     chown -R www-data /var/www/html && \
-    rm -r v1.2.0.tar.gz && \
+    rm -r v2.0.0-RC1.tar.gz && \
     php composer.phar install --no-dev -o && \
     cp -n vendor/jenssegers/date/src/Lang/zh.php vendor/jenssegers/date/src/Lang/zh-CN.php
 
 COPY docker/entrypoint.sh /sbin/entrypoint.sh
+COPY docker/htpasswd /etc/nginx/.htpasswd
+COPY docker/nginx-site.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /var/www/html/
 
