@@ -1,4 +1,4 @@
-[![nodesource/node](http://dockeri.co/image/cachethq/docker)](https://hub.docker.com/r/cachethq/docker/)
+[![nodesource/node](http://dockeri.co/image/rounds/cachethq-docker)](https://hub.docker.com/r/rounds/cachethq-docker/)
 
 Run [Cachet](https://github.com/cachethq/Cachet) status page in a Docker container.
 
@@ -6,16 +6,16 @@ For full documentation, visit the Cachet Documentation page:
 - [Getting started with Cachet in Docker](https://docs.cachethq.io/docs/get-started-with-docker)
 
 # Automated build
-`cachethq/docker` is available as a [Docker Hub Trusted Build](https://hub.docker.com/r/cachethq/docker/)
+`rounds/cachethq-docker` is available as a [Docker Hub Build](https://hub.docker.com/r/rounds/cachethq-docker/)
 
 To pull the `latest` tag from the Docker Hub:
 ```bash
-docker pull cachethq/docker:latest
+docker pull rounds/cachethq-docker:latest
 ```
 
 To pull a specific version from the Docker Hub:
 ```bash
-docker pull cachethq/docker:1.2.0
+docker pull rounds/cachethq-docker:1.2.0
 ```
 
 # Quickstart
@@ -42,3 +42,7 @@ Docker compose can also be used to automatically setup the Database and Cachet c
 ```bash
 docker-compose up
 ```
+
+# Authorization
+
+Access to the status page is protected by [nginx basic auth](docker/nginx-site.conf#L15). Authorized users are defined in the standard password file [htpasswd](docker/htpasswd). Note that Cachet API is not protected by basic auth because it already has access control (API token).
