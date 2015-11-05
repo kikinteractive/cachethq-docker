@@ -1,5 +1,7 @@
 postgres:
   image: postgres:9.4.4
+  volumes:
+    - /opt/cachethq/data:/var/lib/postgresql/data
   environment:
     - POSTGRES_USER=postgres
     - POSTGRES_PASSWORD=postgres
