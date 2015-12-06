@@ -1,3 +1,5 @@
+# DEPRECATED, migrated to statuspage.io, http://status.rounds.com
+
 [![nodesource/node](http://dockeri.co/image/rounds/cachethq-docker)](https://hub.docker.com/r/rounds/cachethq-docker/)
 
 Run [Cachet](https://github.com/cachethq/Cachet) status page in a Docker container.
